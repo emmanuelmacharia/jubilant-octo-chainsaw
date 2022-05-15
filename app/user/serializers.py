@@ -1,6 +1,5 @@
 from django.contrib.auth import get_user_model, authenticate
 from django.utils.translation import gettext as _
-
 from rest_framework import serializers
 
 
@@ -17,7 +16,6 @@ class UserSerializer(serializers.ModelSerializer):
         return get_user_model().objects.create_user(**validated_data)
 
 
-
 class AuthTokenSerializer(serializers.Serializer):
     """Serializer for user authentication object"""
     email = serializers.CharField()
@@ -32,7 +30,7 @@ class AuthTokenSerializer(serializers.Serializer):
         password = attrs.get('password')
 
         user = authenticate(
-            request = self.context.get('request'),
+            request=self.context.get('request'),
             username=email,
             password=password,
         )

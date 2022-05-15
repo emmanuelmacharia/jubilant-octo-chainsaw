@@ -4,3 +4,5 @@ exclude =
   __pycache__,
   manage.py,
   settings.py
+ignore = 
+  E124, E123, E121, E126
